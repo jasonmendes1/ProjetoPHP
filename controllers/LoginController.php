@@ -5,7 +5,7 @@
  * Date: 09/05/2019
  * Time: 17:08
  */
-include_once'../views/LoginController.phtml';
+include_once'../views/LoginView.phtml';
 
 class index
 {
