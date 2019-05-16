@@ -23,6 +23,7 @@ function checklogin($username,$password)
 
 function registar($nome,$idade,$user,$password)
 {
-    echo'ifnrifni';
+    header('Location: ../views/HomeView.phtml');
+    exit();
     //fazer merdas
 }
