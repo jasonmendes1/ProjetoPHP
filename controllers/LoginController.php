@@ -21,7 +21,8 @@ function checklogin($username,$password)
     }
 }
 
-function registar($username, $password)
+function registar($nome,$idade,$user,$password)
 {
+    echo'ifnrifni';
     //fazer merdas
 }
