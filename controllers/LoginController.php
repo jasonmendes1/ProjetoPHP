@@ -20,3 +20,8 @@ function checklogin($username,$password)
         exit();
     }
 }
+
+function registar($username, $password)
+{
+    //fazer merdas
+}
