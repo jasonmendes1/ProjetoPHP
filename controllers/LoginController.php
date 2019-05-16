@@ -7,6 +7,14 @@
  */
 include_once'../views/LoginView.phtml';
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        if()
+        {
+            
+        }
+    }
+
 class index
 {
 
