@@ -11,7 +11,11 @@ class index
 
 }
 
-class checklogin
+function checklogin($username,$password)
 {
-
+    if($username == $_SESSION['username'] && $password == $_SESSION['password'])
+    {
+        header('Location: GameView.phtml');
+        exit();
+    }
 }
