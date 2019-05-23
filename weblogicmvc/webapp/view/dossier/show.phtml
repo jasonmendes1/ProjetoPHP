@@ -1,0 +1,37 @@
+<?php
+require_once 'vendor/autoload.php';
+use Carbon\Carbon;
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+    <table border="1px">
+        <tr>
+            <th>Num Prestação</th>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Despesas</th>
+            <th>Credito</th>
+        </tr>
+        <?php
+            for($i = 0;$i<$_SESSION['emprestimo'].numprestacoes;$i++) {
+                echo '<tr>';
+                echo '<th>' . ($i + 1) . '</th>';
+                echo '<th>' . $_SESSION['emprestimo'].nome . '</th>';
+                echo '<th>' . $_SESSION['emprestimo'].data . '</th>';
+                echo '<th>' . $_SESSION['emprestimo'].desp . '</th>';
+                echo '<th>' . $_SESSION['emprestimo'].cred . '</th>';
+                echo '</tr>';
+            }
+        ?>
+        <?php Layout::includeLayout('indexheader'); ?> <!-- para o header da página principal -->
+
+        <?php Layout::includeLayout('footer')?> <!-- para o footer -->
+    </table>
+
+    </body>
+</html>
