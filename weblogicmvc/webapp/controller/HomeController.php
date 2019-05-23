@@ -54,10 +54,5 @@ class HomeController extends BaseController
         Redirect::toRoute('home/worksheet');
     }
 
-    public function about(){
-
-        return View::make('home.about');
-    }
-
 
 }
