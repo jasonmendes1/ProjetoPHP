@@ -4,15 +4,15 @@ use ArmoredCore\WebObjects\Layout;
 use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Data;
 Layout::includeLayout('indexheader'); 
-$gameEngine = Data::get('game');
+$game = Data::get('game');
 ?>
 
 <div>
 <br><br><br>
-<h1>GO fish game<h1>
+<h1>GO Fish game<h1>
 
 <?php 
-    $botcards = $gameEngine->getBotCardCount();
+    $botcards = $game->getBotCardCount();
 
     echo '<table>';
     for ($i = 1; $i <= $botcards; $i++){
@@ -27,17 +27,22 @@ $gameEngine = Data::get('game');
     echo '<h1> Baralho </h1>';
     //Tracy\Debugger::barDump($gameEngine->countCardsInDeck(), 'cartas no deck');
     
+    echo '<table>';
     
-    if($gameEngine->countCardsInDeck() > 0)
+    /** if($game->countCardsInDeck() > 0)
     {
         echo '<img src="'.Asset::image('back.png').'">';
     }
+    */
+
+    
+    echo '</table>';
 ?>
 
     echo '<h1> Cartas do Jogador </h1>'
 
     <?php
-        $playerHand = $gameEngine->getPlayerHand();
+        $playerHand = $game->getPlayerHand();
         echo '<table>';
         foreach ($playerHand as $card)
         {

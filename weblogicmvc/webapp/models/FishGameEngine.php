@@ -30,9 +30,6 @@ class FishGameEngine {
         }
     }
         
-    public function getBotCardCount() {
-        return count($this->_botHand->getHand());
-    }
 
     /**
      * Recebe uma carta, procura na mão por cartas com o mesmo valor
@@ -65,7 +62,12 @@ class FishGameEngine {
 
     public function countCardsInDeck()
     {
-        return $this-> _deck->getCurrentDeckSize();
+        return $this->_deck->getCurrentDeckSize();
+    }
+
+    
+    public function getBotCardCount() {
+        return count($this->_botHand->getHand());
     }
 
     public function makeBotPlay() {
