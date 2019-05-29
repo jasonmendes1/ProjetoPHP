@@ -62,7 +62,9 @@ class FishGameEngine {
 
     public function countCardsInDeck()
     {
-        return $this->_deck->getCurrentDeckSize();
+        //return $this->_deck->getCurrentDeckSize();
+        //return count($this->_deck);
+        return 'Teste';
     }
 
     

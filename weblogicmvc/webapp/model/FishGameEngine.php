@@ -63,6 +63,11 @@ class FishGameEngine {
         $this->_playerTurn = !$this->_playerTurn;
     }
 
+    public function countCardsInDeck()
+    {
+        return $this->_deck->getCurrentDeckSize();
+    }
+
     public function makeBotPlay() {
         $arrayConta = [];
         $numCards = $this->getBotCardCount();
