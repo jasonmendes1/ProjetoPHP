@@ -28,10 +28,11 @@ $gameEngine = Data::get('game');
     //Tracy\Debugger::barDump($gameEngine->countCardsInDeck(), 'cartas no deck');
     
     
-    if($gameEngine->countCardsInDeck() > 0)
+   if($gameEngine->countCardsInDeck() > 0)
     {
-        echo '<img src=" '.Asset::image('back.png') . '">';
+       echo '<img src=" '.Asset::image('back.png') . '">';
     }
+    
 ?>
 
     echo '<h1> Cartas do Jogador </h1>'
