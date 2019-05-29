@@ -8,14 +8,15 @@ $game = Data::get('game');
 ?>
 
 <div>
-<br><br><br>
+<br><br><br><br>
 <h1>GO Fish game<h1>
 
 <?php 
     $botcards = $game->getBotCardCount();
 
     echo '<table>';
-    for ($i = 1; $i <= $botcards; $i++){
+    for ($i = 1; $i <= $botcards; $i++)
+    {
         echo '<td>';
         echo '<img src=" '.Asset::image('back.png') . '">';
         echo '</td>';
@@ -29,31 +30,32 @@ $game = Data::get('game');
     
     echo '<table>';
     
-    /** if($game->countCardsInDeck() > 0)
+    if($game->countCardsInDeck() > 0)
     {
         echo '<td>';
         echo '<img src=" '.Asset::image('back.png') . '">';
         echo '</td>';
     }
-    */
+    
 
     
     echo '</table>';
-?>
-
     echo '<h1> Cartas do Jogador </h1>'
 
-    <?php
-        $playerHand = $game->getPlayerHand();
-        echo '<table>';
-        foreach ($playerHand as $card)
-        {
-            echo '<td>';
-            echo '<img src= "' . Asset::image($card->getIdentifier() . '.png') . '">';
-            echo '</td>';
-        }
-        echo '</table>';
-    ?>
+?>
+
+
+<?php
+    $playerHand = $game->getPlayerHand();
+    echo '<table>';
+    foreach ($playerHand as $card)
+    {
+        echo '<td>';
+        echo '<img src= "' . Asset::image($card->getIdentifier() . '.png') . '">';
+         echo '</td>';
+    }
+     echo '</table>';
+?>
 
 </div>
 

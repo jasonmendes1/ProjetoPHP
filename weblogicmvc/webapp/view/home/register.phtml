@@ -25,24 +25,32 @@ Layout::includeLayout('header') ?>
 							<p class="text-center text-muted">Crie uma conta para poder jogar ao grandioso Go Fish aka Jogo do Peixinho!</p>
 							<hr>
 							
-							<form>
-								<div class="top-margin">
-									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="top-margin">
-									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
-								</div>
+							<form id="login-form" class="form" action="" method="POST">
+							<div class="form-group">
+                                <label for="username" class="text-info">Nome:</label><br>
+                                <input type="text" name="nome" id="nome" require="required" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="data" class="text-info">Data de Nascimento:</label><br>
+                                <input type="date" name="data" id="data" require="required" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" require="required" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" require="required" class="form-control">
+                            </div>
 
 								<hr>
 
 								<div class="row">
 									<div class="col-lg-8">
-										<b><a href="">Esqueceste-te da password?</a></b>
+										<!--<b><a href="">Esqueceste-te da password?</a></b>-->
 									</div>
 									<div class="col-lg-4 text-right">
-										<button class="btn btn-action" type="submit">Login</button>
+										<button class="btn btn-action" type="submit">Registar</button>
 									</div>
 								</div>
 							</form>

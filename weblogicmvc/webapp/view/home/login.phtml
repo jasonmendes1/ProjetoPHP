@@ -25,14 +25,14 @@ Layout::includeLayout('header') ?>
 							<p class="text-center text-muted">Bla Bla Bla, <a href="register">Register</a> bla Bla Bla. </p>
 							<hr>
 							
-							<form>
-								<div class="top-margin">
-									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+							<form id="login-form" class="form" action="" method="POST">
+								<div class="form-group">
+									<label for="username" class="text-info">Username:</label><br>
+									<input type="text" name="username" id="username" require="required" class="form-control">
 								</div>
-								<div class="top-margin">
-									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
+								<div class="form-group">
+									<label for="password" class="text-info">Password:</label><br>
+									<input type="password" name="password" id="password" require="required" class="form-control">
 								</div>
 
 								<hr>
