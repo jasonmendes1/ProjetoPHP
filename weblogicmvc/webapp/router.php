@@ -12,12 +12,18 @@ use ArmoredCore\Facades\Router;
  *  Use convention: controllerName@methodActionName
  ****************************************************************************/
 
-Router::get('/',			'HomeController/index');
-Router::get('home/',		'HomeController/index');
-Router::get('home/index',	'HomeController/index');
-Router::get('home/start',	'HomeController/start');
-Router::get('home/about',	'HomeController/about');
-Router::get('game/gui',   'GameController/index');
+Router::get('/',			    'HomeController/index');
+Router::get('home/',		    'HomeController/index');
+Router::get('home/index',	    'HomeController/index');
+Router::get('home/start',	    'HomeController/start');
+Router::get('home/about',	    'HomeController/about');
+Router::get('game/gui',         'GameController/index');
+Router::get('home/login',       'LoginController/checklogin');
+Router::get('home/register',    'LoginController/register');
+
+
+
+
 
 
 

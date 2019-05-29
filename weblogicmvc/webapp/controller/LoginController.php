@@ -1,28 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Tiago Antunes
- * Date: 09/05/2019
- * Time: 17:08
- */
+use ArmoredCore\Controllers\BaseController;
+use ArmoredCore\WebObjects\Redirect;
+use ArmoredCore\WebObjects\Session;
+use ArmoredCore\WebObjects\View;
 
-class index
-{
 
-}
+class LoginController extends BaseController{
 
-function checklogin($username,$password)
-{
-    if($username == $_SESSION['username'] && $password == $_SESSION['password'])
+    function checklogin()
     {
-        //header('Location: GameView.phtml');
-        exit();
+        $login = new LoginController();
+        \Tracy\Debugger::barDump($login);
+        return View::make('home.login', ['login' => $login]);
     }
-}
-
-function registar($nome,$idade,$user,$password)
-{
-    //header('Location: ../views/HomeView.phtml');
-    exit();
-    //fazer merdas
+    
+    function register()
+    {
+        $register = new LoginController();
+        \Tracy\Debugger::barDump($register);
+        return View::make('home.register', ['register' => $register]);        
+    }
 }
