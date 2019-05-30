@@ -18,8 +18,18 @@ Router::get('home/index',	    'HomeController/index');
 Router::get('home/start',	    'HomeController/start');
 Router::get('home/about',	    'HomeController/about');
 Router::get('game/gui',         'GameController/index');
-Router::get('home/login',       'LoginController/checklogin');
-Router::get('home/register',    'LoginController/register');
+                                 /*Login / Register */
+Router::get('home/login',       'LoginController/login');
+
+Router::get('home/register',    'UserController/index');
+Router::get('home/register',    'UserController/create');
+Router::get('home/register',    'UserController/store');
+Router::get('home/register',    'UserController/show');
+Router::get('home/register',    'UserController/edit');
+Router::get('home/register',    'UserController/update');
+Router::get('home/register',    'UserController/destroy');
+
+
 
 
 
