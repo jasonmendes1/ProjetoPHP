@@ -4,8 +4,8 @@ use ArmoredCore\WebObjects\Layout;
 use ArmoredCore\WebObjects\URL;
 
 Layout::includeLayout('header') ?>
-<?php $user = Data::get('users')?>
-<?php ErrMgr::attach($user) ?>
+<?php $users = Data::get('user')?>
+<?php ErrMgr::attach($users) ?>
 
 
 	<!-- container -->
@@ -23,16 +23,16 @@ Layout::includeLayout('header') ?>
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<hr>
-							<form method="post" action="<?=Url::toRoute('users/store')?>">
+							<form method="post" action="<?=Url::toRoute('user/store')?>">
 								<div class="top-margin">
 									<label>Name <span class="text-danger">*</span></label>
-									<input type="text" value="<?=$user->name?>" name="name" class="form-control" placeholder="Enter bo	ok name">
+									<input type="text" value="<?=$users->name?>" name="name" class="form-control" placeholder="Enter bo	ok name">
                                     <?= ErrMgr::bind('name') ?>
 
 								</div>
 								<div class="top-margin">
 									<label>ISBN <span class="text-danger">*</span></label>
-									<input type="text" value="<?=$user->isbn?>" name="isbn" class="form-control" placeholder="Enter ISBN">
+									<input type="text" value="<?=$users->isbn?>" name="isbn" class="form-control" placeholder="Enter ISBN">
                                     <?= ErrMgr::bind('isbn') ?>
                                 </div>
 

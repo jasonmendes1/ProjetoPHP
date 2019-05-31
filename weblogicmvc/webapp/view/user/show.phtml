@@ -3,7 +3,7 @@ use ArmoredCore\WebObjects\Layout;
 use ArmoredCore\WebObjects\URL;
 
 Layout::includeLayout('header') ?>
-<?php $user = Data::get('users') ?>
+<?php $users = Data::get('user') ?>
 
 	<!-- container -->
 	<div class="container">
@@ -21,14 +21,14 @@ Layout::includeLayout('header') ?>
 						<div class="panel-body">
 							<hr>
 							
-							<form method="post" action="<?=Url::toRoute('users/index')?>">
+							<form method="post" action="<?=Url::toRoute('user/index')?>">
 								<div class="top-margin">
 									<label>Name <span class="text-danger">*</span></label>
-									<input readonly="true" type="text" value="<?=$user->name?>" name="name" class="form-control">
+									<input readonly="true" type="text" value="<?=$users->name?>" name="name" class="form-control">
 								</div>
 								<div class="top-margin">
 									<label>ISBN <span class="text-danger">*</span></label>
-									<input readonly="true" type="text" value="<?=$user->isbn?>" name="isbn" class="form-control">
+									<input readonly="true" type="text" value="<?=$users->isbn?>" name="isbn" class="form-control">
                                 </div>
 
 								<hr>
