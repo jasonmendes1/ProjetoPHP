@@ -5,12 +5,7 @@ use ArmoredCore\WebObjects\Redirect;
 use ArmoredCore\WebObjects\View;
 use ArmoredCore\Interfaces\ResourceControllerInterface;
 
-/**
- * Created by PhpStorm.
- * User: smendes
- * Date: 08-04-2017
- * Time: 12:36
- */
+
 class UserController extends BaseController implements ResourceControllerInterface {
     /**
      * @return mixed
@@ -60,6 +55,7 @@ class UserController extends BaseController implements ResourceControllerInterfa
 
         if (is_null($users)) {
             // redirect to standard error page
+            View::make('user.show', ['user' => $users]);
         } else {
             View::make('user.show', ['user' => $users]);
         }
@@ -75,6 +71,7 @@ class UserController extends BaseController implements ResourceControllerInterfa
 
         if (is_null($users)) {
             // redirect to standard error page
+            View::make('user.edit', ['user' => $users]);
         } else {
             View::make('user.edit', ['user' => $users]);
         }
@@ -102,10 +99,13 @@ class UserController extends BaseController implements ResourceControllerInterfa
      * @param $id
      * @return mixed
      */
+    
+
     public function destroy($id)
     {
         $users = User::find($id);
         $users->delete();
         Redirect::toRoute('user/index');
     }
+
 }

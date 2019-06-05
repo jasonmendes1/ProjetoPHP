@@ -10,14 +10,14 @@ Layout::includeLayout('header') ?>
 
         <ol class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li class="active">Book Index</li>
+            <li class="active">User Index</li>
         </ol>
 
-        <h2 class="text-left top-space">Book Index</h2>
+        <h2 class="text-left top-space">User Index</h2>
         <h2 class="top-space"></h2>
         <div class="row">
             <div class="col-sm-12">
-                <table class="table table-striped"><thead><th><h3>Id</h3></th><th><h3>Name</h3></th><th><h3>ISBN</h3></th><th><h3>User Actions</h3></th></thead>
+                <table class="table table-striped"><thead><th><h3>Id</h3></th><th><h3>Nome</h3></th><th><h3>Username</h3></th><th><h3>Password</h3></th><th><h3>Is Admin</h3></th><th><h3>Blocked</h3></th><th><h3>Score</h3></th><th><h3>Email</h3></th><th><h3>Data de Nascimento</h3></th></thead>
                 <tbody>
                 <?php foreach ($users as $user) { ?>
                     <tr>
@@ -29,7 +29,11 @@ Layout::includeLayout('header') ?>
                     <td><?=$user->blockers?></td>
                     <td><?=$user->score?></td>
                     <td><?=$user->email?></td>
-                    <td><?=$user->datanasc?></td>
+                    <?php
+                    $date = $user->datanasc;
+                    $result = $date->format('Y-m-d');
+                    ?>
+                    <td><?=$result?></td>
 
                     <td>
                         <a href="<?=Url::toRoute('user/show', $user->id)?>" class="btn btn-info" role="button">Show</a>
@@ -43,12 +47,6 @@ Layout::includeLayout('header') ?>
 
             </table>
 
-            </div>
-            <div class="col-sm-6">
-                <h3>Create a new Book</h3>
-                <p>
-                    <a href="<?=Url::toRoute('user/create')?>" class="btn btn-info" role="button">New</a>
-                </p>
             </div>
         </div> <!-- /row -->
 

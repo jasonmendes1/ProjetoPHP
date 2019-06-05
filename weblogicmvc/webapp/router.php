@@ -21,13 +21,12 @@ Router::get('game/gui',         'GameController/index');
                                  /*Login / Register */
 Router::get('home/login',       'LoginController/login');
 
-Router::get('home/register',    'UserController/index');
-Router::get('home/register',    'UserController/create');
-Router::get('home/register',    'UserController/store');
-Router::get('home/register',    'UserController/show');
-Router::get('home/register',    'UserController/edit');
-Router::get('home/register',    'UserController/update');
-Router::get('home/register',    'UserController/destroy');
+Router::get('user/index',       'UserController/index');
+Router::get('user/create',      'UserController/create');
+Router::get('user/show',        'UserController/show');
+Router::get('user/edit',        'UserController/edit');
+
+
 
 
 
