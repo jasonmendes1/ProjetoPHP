@@ -17,7 +17,7 @@ Router::get('home/',		    'HomeController/index');
 Router::get('home/index',	    'HomeController/index');
 Router::get('home/start',	    'HomeController/start');
 Router::get('home/about',	    'HomeController/about');
-Router::get('game/gui',         'GameController/index');
+
                                  /*Login / Register */
 Router::get('home/login',       'LoginController/login');
 
@@ -27,6 +27,14 @@ Router::get('user/show',        'UserController/show');
 Router::get('user/edit',        'UserController/edit');
 
 Router::resource('user', 'UserController');
+
+Router::get('game/gui',         'GameController/index');
+Router::get('game/askcard',     'GameController/askcard');
+Router::get('game/botTellCard', 'GameController/botTellCard');
+Router::get('game/goFish',      'GameController/takeCardFromDeck');
+
+
+
 
 
 

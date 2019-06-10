@@ -10,8 +10,34 @@ class FishGameEngine {
 
     public function __construct(){
         $this->_deck = new Deck();
-        $this->initHands(4);
+        $this->initHands(7);
     }
+
+    public function showturn()
+    {
+        return $this->_playerTurn;
+    }
+
+    public function addPointPlayer()
+    {
+        $this->_playerPoints++;
+    }
+
+    public function getPointPlayer()
+    {
+        return $this->_playerPoints;
+    }
+
+    public function addPointBot()
+    {
+        $this->_botPoints++;
+    }
+
+    public function getPointBot()
+    {
+        return $this->_botPoints;
+    }   
+
 
     private function initHands($startingCardCount) {
         $this->_playerHand = new Hand($this->_deck->dealCards($startingCardCount));
@@ -22,12 +48,25 @@ class FishGameEngine {
         return $this->_playerHand->getHand();
     }
 
+    public function getPlayerHandNotArray(){
+        return $this->_playerHand->getHandNotArray();
+    }
+
     public function addCardsToHand(array $cards) {
         if ($this->_playerTurn) {
             $this->_playerHand->addCardsToHand($cards);
         } else {
             $this->_botHand->addCardsToHand($cards);
         }
+    }
+
+    public function getBotHand()
+    {
+        return $this->_botHand->getHand();
+    }
+    public function getBotHandNotArray()
+    {
+        return $this->_botHand->getHandNotArray();
     }
         
     public function getBotCardCount() {
@@ -66,6 +105,15 @@ class FishGameEngine {
     public function countCardsInDeck()
     {
         return $this->_deck->getCurrentDeckSize();
+    }
+
+    public function removeCardPlayer(Card $carta)
+    {
+        $this->_playerHand->removeCardsByValue($carta);
+    }
+
+    public function removeCardBot(){
+        $this->_botHand->removeCardsByValue($carta);
     }
 
     public function makeBotPlay() {

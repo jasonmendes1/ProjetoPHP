@@ -31,6 +31,16 @@ class Hand
 
     public function removeCardsByValue(Card $card){
         // TODO: Remove as cartas da mão que tenham o mesmo valor que a carta passada como parâmetro
+        $i = 0;
+        foreach($this->_hand as $cards)
+        {
+            if($card->getValue() == $cards->getValue())
+            {
+                unset($this->_hand[$i]);
+            }
+            $i++;
+        }
+        $this->_hand = array_values($this->_hand);
     }
 
     public function addCardsToHand(array $cards) {
@@ -71,5 +81,9 @@ class Hand
         return $this->_hand;
     }
 
+    public function getHandNotArray()
+    {
+        return $this;
+    }
 
 }
