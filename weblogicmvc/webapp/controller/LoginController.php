@@ -11,7 +11,12 @@ class LoginController extends BaseController{
     {
         $login = new LoginController();
         \Tracy\Debugger::barDump($login);
+
         return View::make('home.login', ['login' => $login]);
+
+        session_start();
+        $username = $_POST['username'];
+        $password = $_POST['password'];
     }
     
     /*

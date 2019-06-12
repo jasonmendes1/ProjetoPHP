@@ -110,4 +110,18 @@ class UserController extends BaseController implements ResourceControllerInterfa
         Redirect::toRoute('user/index');
     }
 
+    public function login($id)
+    {
+        $login = new LoginController();
+        \Tracy\Debugger::barDump($login);
+
+        return View::make('home.login', ['login' => $login]);
+
+        session_start();
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $login = USER::find_by_username_and_password($user, $pass);
+    }  
+
 }

@@ -25,6 +25,8 @@ Router::get('user/index',       'UserController/index');
 Router::get('user/create',      'UserController/create');
 Router::get('user/show',        'UserController/show');
 Router::get('user/edit',        'UserController/edit');
+Router::get('user/login',        'UserController/login');
+
 
 Router::resource('user', 'UserController');
 

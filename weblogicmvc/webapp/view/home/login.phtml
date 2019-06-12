@@ -1,4 +1,8 @@
-<?php use ArmoredCore\WebObjects\Layout;
+<?php
+use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\ErrMgr;
+use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\URL;
 
 Layout::includeLayout('header') ?>
 
@@ -22,10 +26,10 @@ Layout::includeLayout('header') ?>
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">Faça Login!</h3>
-							<p class="text-center text-muted">Bla Bla Bla, <a href="../user/create">Register</a> bla Bla Bla. </p>
+							<p class="text-center text-muted">Bla Bla Bla, <a href="../user/create">Register</a> bla Bla Bla.</p>
 							<hr>
 							
-							<form id="login-form" class="form" action="" method="POST">
+							<form method="post" action="<?=Url::toRoute('user/login')?>">
 								<div class="form-group">
 									<label for="username" class="text-info">Username:</label><br>
 									<input type="text" name="username" id="username" require="required" class="form-control">
