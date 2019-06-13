@@ -5,6 +5,8 @@ use ArmoredCore\WebObjects\Redirect;
 use ArmoredCore\WebObjects\View;
 use ArmoredCore\Interfaces\ResourceControllerInterface;
 use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\Session;
+
 
 
 class UserController extends BaseController implements ResourceControllerInterface {
@@ -128,7 +130,7 @@ class UserController extends BaseController implements ResourceControllerInterfa
             {
                 Redirect::toRoute('user/index');
             }
-            else if($logar->blocked == 1)
+            else if($logar->blockers == 1)
             {
                 echo 'Bloqueado';
             }
