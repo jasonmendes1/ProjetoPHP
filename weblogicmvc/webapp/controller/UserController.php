@@ -117,22 +117,22 @@ class UserController extends BaseController implements ResourceControllerInterfa
     {
         $username = Post::get('username');
         $password = Post::get('password');
-        $logar = User::find_by_username_and_password($username,$password);
-        Tracy\Debugger::barDump($logar);
-        if(is_null($logar))
+        $logado = User::find_by_username_and_password($username,$password);
+        Tracy\Debugger::barDump($logado);
+        if(is_null($logado))
         {
-           $erro ="O Username ou a Password esta incorreta
-           Recuperar a Conta?";
-           View::make('home.login',['erro'=>$erro] );
+            echo  '<script type="application/javascript">
+            alert("Os dados de login estão incorreta!");
+            </script>';
         }else {
             Session::set('username',$username);
-            if($logar->isadmin == 1)
+            if($logado->isadmin == 1)
             {
                 Redirect::toRoute('user/index');
             }
-            else if($logar->blockers == 1)
+            else if($logado->blockers == 1)
             {
-                echo 'Bloqueado';
+                echo 'Acesso Negado: Bloqueado';
             }
             else Redirect::toRoute('game/gui');
         }

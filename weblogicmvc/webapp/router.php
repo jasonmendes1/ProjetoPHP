@@ -20,6 +20,7 @@ Router::get('home/about',	    'HomeController/about');
 
                                  /*Login / Register */
 
+Router::get('home/login',       'UserController/login');
 Router::get('user/index',       'UserController/index');
 Router::get('user/create',      'UserController/create');
 Router::get('user/show',        'UserController/show');
