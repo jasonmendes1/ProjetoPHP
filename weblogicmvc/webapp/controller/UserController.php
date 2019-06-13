@@ -111,28 +111,34 @@ class UserController extends BaseController implements ResourceControllerInterfa
         Redirect::toRoute('user/index');
     }
 
-    public function login()
+    public function Fazerlogin()
     {
-        $users = Data::get('user');
-        $login = new LoginController();
-        \Tracy\Debugger::barDump($login);
-
-        return View::make('home.login', ['login' => $login]);
-
-        Session::Set('webapp', users);
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $login = USER::find_by_username_and_password($username, $password);
-
-        if ($users->password = $_POST['username'] and $users->password = $_POST['password'])
+        $username = Post::get('username');
+        $password = Post::get('password');
+        $logar = User::find_by_username_and_password($username,$password);
+        Tracy\Debugger::barDump($logar);
+        if(is_null($logar))
         {
-            echo 'correto';
-        }
-        else
-        {
-            echo 'burro';
+           $erro ="O Username ou a Password esta incorreta
+           Recuperar a Conta?";
+           View::make('home.login',['erro'=>$erro] );
+        }else {
+            Session::set('username',$username);
+            if($logar->isadmin == 1)
+            {
+                Redirect::toRoute('user/index');
+            }
+            else if($logar->blocked == 1)
+            {
+                echo 'Bloqueado';
+            }
+            else Redirect::toRoute('game/gui');
         }
     }  
 
+    public function login()
+    {
+        $erro ="";
+        View::make('home.login',['erro'=>$erro]);
+    }
 }
