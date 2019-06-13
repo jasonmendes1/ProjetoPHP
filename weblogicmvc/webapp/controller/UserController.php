@@ -4,6 +4,7 @@ use ArmoredCore\WebObjects\Post;
 use ArmoredCore\WebObjects\Redirect;
 use ArmoredCore\WebObjects\View;
 use ArmoredCore\Interfaces\ResourceControllerInterface;
+use ArmoredCore\WebObjects\Data;
 
 
 class UserController extends BaseController implements ResourceControllerInterface {
@@ -110,18 +111,28 @@ class UserController extends BaseController implements ResourceControllerInterfa
         Redirect::toRoute('user/index');
     }
 
-    public function login($id)
+    public function login()
     {
+        $users = Data::get('user');
         $login = new LoginController();
         \Tracy\Debugger::barDump($login);
 
         return View::make('home.login', ['login' => $login]);
 
-        session_start();
+        Session::Set('webapp', users);
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $login = USER::find_by_username_and_password($user, $pass);
+        $login = USER::find_by_username_and_password($username, $password);
+
+        if ($users->password = $_POST['username'] and $users->password = $_POST['password'])
+        {
+            echo 'correto';
+        }
+        else
+        {
+            echo 'burro';
+        }
     }  
 
 }
